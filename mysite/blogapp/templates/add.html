@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method = "POST" action = "http://127.0.0.1:8000/adding/">
+
+    {% csrf_token %}
+    
+    {{add_form}}
+
+<input type = "submit" value = "отправить">
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        {% for question in question_list %}
+
+            <li><a href ="/{{question.id}}/">{{question.title}}</a></li>
+        {% endfor %}
+        <li><a href = "search/">Поиск</a></li>
+        <li><a href = "add/">Добавить</a></li>
+
+
+{% endblock %}
