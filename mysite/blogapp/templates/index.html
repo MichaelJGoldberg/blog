@@ -4,10 +4,10 @@
 
         {% for question in question_list %}
 
-            <li><a href ="/{{question.id}}/">{{question.title}}</a></li>
+            <li><a href ="http://127.0.0.1:8000/{{user.name}}/{{question.id}}/">{{question.title}}</a></li>
         {% endfor %}
-        <li><a href = "search/">Поиск</a></li>
-        <li><a href = "add/">Добавить</a></li>
+        <li><a href = "http://127.0.0.1:8000/{{user.name}}/search/">Поиск</a></li>
+        <li><a href = "http://127.0.0.1:8000/{{user.name}}/add/">Добавить</a></li>
 
 
 {% endblock %}

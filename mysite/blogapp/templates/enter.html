@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method = "POST" action = "entering/">
+    {% csrf_token %}
+    {{enter_form}}
+    <input type = "submit" value = "отправить">
+</form>
+
+{% endblock %}

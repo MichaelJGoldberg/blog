@@ -4,7 +4,9 @@ from django.db import models
 class User(models.Model):
     name = models.CharField(max_length=100)
     birth_date = models.DateField()
-    role = models.CharField(max_length=50)
+    password = models.IntegerField(default = 0000)
+    email = models.EmailField(default="gay@mail.ru")
+    is_authentefikated = models.BooleanField(default=False)
     def __str__(self):
         return self.name
 
