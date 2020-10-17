@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+
     <p>{{ question.title }}</p>
     <p>{{question.text}}</p>
     <p>{{question.pub_date }}</p>
     <p>{{question.user}}</p>
     <p>{{ question.id }}</p>
     <p>{{ question.comment}}
+
         {% for comment in commentary_list %}
 
             <p>{{comment.texts}}</p>
@@ -15,7 +17,7 @@
     <li><a href = "comment/">комментировать</a></li> 
     <p>
 
-            <form method = "POST" action = "http://127.0.0.1:8000/{{user.name}}/{{question.id}}/select/">
+            <form method = "POST" action = "http://127.0.0.1:8000/{{question.id}}/select/">
                 {% csrf_token %}
                 {% for choice in choice_list %}
                     <input type = 'radio' name = "choice" value = "{{choice.id}}">
@@ -25,12 +27,12 @@
             </form> 
 
             <p>
-                <form method = "POST" action = "http://127.0.0.1:8000/{{user.name}}/{{question.id}}/upvote/">
+                <form method = "POST" action = "http://127.0.0.1:8000/{{question.id}}/upvote/">
                     {% csrf_token %}
                     <p>{{question.upvotes}}</p>
                 <input type = "submit" value = "upvote">
                 </form>
-                <form method = "POST" action = "http://127.0.0.1:8000/{{user.name}}/{{question.id}}/downvote/">
+                <form method = "POST" action = "http://127.0.0.1:8000/{{question.id}}/downvote/">
                     {% csrf_token %}
                     <p>{{question.downvotes}}</p>
                 <input type = "submit" value = "downvote">

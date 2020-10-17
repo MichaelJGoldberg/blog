@@ -5,14 +5,25 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <li><a href = "http://127.0.0.1:8000/{{user.name}}/index">на главную</a></li> 
-    <li><a href = "http://127.0.0.1:8000/{{user.name}}/exit">выйти</a></li> 
+    <li><a href = "http://127.0.0.1:8000/index">на главную</a></li> 
+    <li><a href = "http://127.0.0.1:8000/accounts/logout/">выйти</a></li> 
 
 
 
     
 
     {% block content %}
+    <ul class="sidebar-nav">
+
+        ...
+    
+       {% if user.is_authenticated %}
+         <li>User: {{ user.get_username }}</li>
+         <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+       {% else %}
+         <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+       {% endif %} 
+      </ul>
     {% endblock %}
 
 </body>
