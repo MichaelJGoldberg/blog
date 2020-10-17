@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render, HttpResponse,redirect
 from .models import Question,Comment,Choice
-from .forms import CommentForm,SearchForm,AddForm,LoginForm,EnterForm
+from .forms import CommentForm,SearchForm,AddForm,LoginForm,EnterForm,ChoiceForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -42,13 +42,11 @@ def searching(request):
             link = '//127.0.0.1:8000/' + str(_question.id)
             return redirect(link)
 
-
 @login_required
 def comment(request, question_id):
 
         _CommentForm = CommentForm()
         return render(request, 'comment.html',{'form':_CommentForm})
-
 
 @login_required
 def commenting(request, question_id):
@@ -70,14 +68,25 @@ def select(request, question_id):
         _choice = Choice.objects.get(id = _id)
         _choice.votes += 1
         _choice.save()
-        return render(request, 'results.html', {"choice":_choice,"user":user})
+        return render(request, 'results.html', {"choice":_choice})
 
 @login_required
 def add(request):
 
+    _ChoiceForm = ChoiceForm()
     _AddForm = AddForm()
-    context = {"add_form": _AddForm}
+    context = {"add_form": _AddForm,"choice_form":_ChoiceForm}
     return render (request, 'add.html', context)
+
+@login_required
+def add_question(request):
+
+    if request.method == "POST":
+        _ChoiceForm = ChoiceForm()
+        _AddForm = AddForm()
+        context = {"add_form": _AddForm,"choice_form":_ChoiceForm}
+        return render (request, 'add.html', context)
+
 
 @login_required
 def adding(request): 
@@ -100,7 +109,6 @@ def upvote(request, question_id):
     _question.save()
     link = '//127.0.0.1:8000/'+ str(_question.id)
     return redirect(link)
-
 
 @login_required
 def downvote(request, question_id):

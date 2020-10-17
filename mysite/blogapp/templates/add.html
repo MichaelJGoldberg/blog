@@ -5,11 +5,19 @@
 <form method = "POST" action = "http://127.0.0.1:8000/adding/">
 
     {% csrf_token %}
-    
-    {{add_form}}
+
+    <h3>Название статьи: </h3> 
+    <p>{{add_form.title}}</p>
+
+    <h3>Текст статьи: </h3> 
+    <p>{{add_form.text}}</p>
+
+    <h3>Автор статьи: </h3> 
+    <p>{{add_form.author}}</p>
 
 <input type = "submit" value = "отправить">
-
 </form>
+
+
 
 {% endblock %}

@@ -12,11 +12,12 @@ urlpatterns = [
     path('search/', views.search),
     path('search/searching/', views.searching),
     path('add/', views.add),
+    path('add_question/',views.add_question),
     path('adding/', views.adding),
     path('<int:question_id>/upvote/', views.upvote),
     path('<int:question_id>/downvote/', views.downvote),
     path('login/', views.login_page),
-    path('log_in/', views.login)
+    path('log_in/', views.login),
 
 
 ]

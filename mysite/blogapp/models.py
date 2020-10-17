@@ -23,7 +23,6 @@ class Comment(models.Model):
 class Choice(models.Model):
     votepage = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.TextField()
-    choice_value = models.BooleanField(default=0)
     votes = models.IntegerField(default = 0)
 
     def __str__(self):

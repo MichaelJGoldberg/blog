@@ -2,19 +2,18 @@
 
 {% block content %}
 
+
     <p>{{ question.title }}</p>
     <p>{{question.text}}</p>
     <p>{{question.pub_date }}</p>
     <p>{{question.user}}</p>
-    <p>{{ question.id }}</p>
-    <p>{{ question.comment}}
-
+    
         {% for comment in commentary_list %}
 
             <p>{{comment.texts}}</p>
         {% endfor %}
 
-    <li><a href = "comment/">комментировать</a></li> 
+    <h3><a href = "comment/">комментировать</a></h3> 
     <p>
 
             <form method = "POST" action = "http://127.0.0.1:8000/{{question.id}}/select/">

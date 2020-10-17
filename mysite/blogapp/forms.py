@@ -21,3 +21,7 @@ class EnterForm(forms.Form):
     name = forms.CharField(max_length=100)
     password = forms.IntegerField()
 
+class ChoiceForm(forms.Form):
+    choice_text = forms.CharField(max_length=100)
+    
+
