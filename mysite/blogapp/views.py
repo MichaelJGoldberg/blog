@@ -34,7 +34,7 @@ def search(request):
 def searching(request):
 
         if request.method == "POST":
-            value = request.POST.get("_input")
+            value = request.POST.get("text")
             _question = Question.objects.get(title = value)
             c_list = Comment.objects.filter(post = _question)
             ch_list = Choice.objects.filter(votepage = _question)
@@ -52,7 +52,7 @@ def comment(request, question_id):
 def commenting(request, question_id):
 
         if request.method == "POST":
-            _text = request.POST.get("_input")
+            _text = request.POST.get("text")
             value = Question.objects.get(id = question_id)
             comment = Comment(texts= _text,post = value)
             comment.save()

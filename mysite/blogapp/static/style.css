@@ -1,0 +1,62 @@
+body
+{
+    
+    margin-left: 20%;
+    margin-right: 20%;
+
+    font-family: 'Times New Roman';
+    color:black;
+    text-align: center;
+    outline: 1px solid #000;
+}
+
+.navbar
+{
+    background-color: rgb(187, 176, 176);
+    /*margin-left: 35%;*/
+    outline: 1px solid #000;
+}
+
+li,a
+{   
+    color:black;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+.nav_elem
+{    
+    background-color: rgb(163, 163, 163);
+    outline: 1px solid #000;
+	display: inline;
+}
+
+.question_info
+{
+    outline: 1px solid #000;
+    background-color: rgb(197, 196, 196);
+}
+
+.d_data
+{
+    outline: 1px solid #000;
+    float: right;
+	display: inline;
+}
+.comment_link
+{
+    margin-top:3%;
+    padding:3px;
+    margin-left:87%;
+
+}
+
+.comments
+{
+    outline: 1px solid #000;
+    background-color: rgb(197, 196, 196);
+}
+
+
+

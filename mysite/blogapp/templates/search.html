@@ -4,7 +4,8 @@
 
 <form method = "POST" action = "searching/">
     {% csrf_token %}
-    {{search_form}}
+    <h3>Поиск</h3>
+    <p>{{search_form.text}}</p>
 <input type = "submit" value = "отправить">
 </form>
 

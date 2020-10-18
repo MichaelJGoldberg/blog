@@ -2,43 +2,37 @@
 
 {% block content %}
 
+<h3>Статья:{{ question.title }}</h3>
 
-    <p>{{ question.title }}</p>
+<div class = "question_info">
     <p>{{question.text}}</p>
     <p>{{question.pub_date }}</p>
     <p>{{question.user}}</p>
-    
+</div>
+
+<h3>Комментарии:</h3>
+<div class = "comments">
         {% for comment in commentary_list %}
 
             <p>{{comment.texts}}</p>
         {% endfor %}
+</div>
 
-    <h3><a href = "comment/">комментировать</a></h3> 
-    <p>
-
-            <form method = "POST" action = "http://127.0.0.1:8000/{{question.id}}/select/">
-                {% csrf_token %}
-                {% for choice in choice_list %}
-                    <input type = 'radio' name = "choice" value = "{{choice.id}}">
-                    <label>{{choice.choice_text}}</label>
-                {% endfor %}
-                <input type="submit" value="Отправить">
-            </form> 
-
-            <p>
+                <div class = "feedback "> 
                 <form method = "POST" action = "http://127.0.0.1:8000/{{question.id}}/upvote/">
                     {% csrf_token %}
-                    <p>{{question.upvotes}}</p>
-                <input type = "submit" value = "upvote">
+                    <p class = "d_data"><input  type = "submit" value = "upvote"></p>
+                    <p class = "d_data">{{question.upvotes}}</p>
                 </form>
+
                 <form method = "POST" action = "http://127.0.0.1:8000/{{question.id}}/downvote/">
                     {% csrf_token %}
-                    <p>{{question.downvotes}}</p>
-                <input type = "submit" value = "downvote">
-                </form>
-            </p>
 
-    </p> 
+                    <p class = "d_data"><input  type = "submit" value = "downvote"></p>
+                    <p class = "d_data">{{question.downvotes}}</p>
+                </form>
+                </div>
+                <h3 class = "comment_link"><a href = "comment/">комментировать</a></h3> 
 
 
 {% endblock %}

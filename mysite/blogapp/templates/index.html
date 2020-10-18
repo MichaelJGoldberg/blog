@@ -2,12 +2,17 @@
 
 {% block content %}
 
-        {% for question in question_list %}
 
-            <li><strong><a href ="http://127.0.0.1:8000/{{question.id}}/">{{question.title}}</a></strong></li>
-        {% endfor %}
-        <h3><a href = "http://127.0.0.1:8000/search/">Поиск</a></h3>
-        <h3><a href = "http://127.0.0.1:8000/add/">Добавить</a></h3>
+<h2>Статьи: </h2>
+
+<div class = "links">
+    {% for question in question_list %}
+
+        <h2><a  href ="http://127.0.0.1:8000/{{question.id}}/">{{question.title}}</h2>
+
+    {% endfor %}
+    </div>
+
 
 
 {% endblock %}

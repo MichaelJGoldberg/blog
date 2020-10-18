@@ -1,16 +1,20 @@
 {% load static %}
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href= "{% static "style.css" %}">
 
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-<h2><a href = "http://127.0.0.1:8000/index">на главную</a></h2>
-<h2><a href = "http://127.0.0.1:8000/accounts/logout/">выйти</a></h2>
+  <div class = "main_block">
+  <div class = "navbar">
+<h2 class = "nav_elem"><a  href = "http://127.0.0.1:8000/index">на главную</a></h2>
+<h2 class = "nav_elem"><a  href = "http://127.0.0.1:8000/accounts/logout/">выйти</a></h2>
+<h2 class ="nav_elem"><a href = "http://127.0.0.1:8000/search/">поиск</a></h2>
+<h2 class ="nav_elem" ><a href = "http://127.0.0.1:8000/add/">добавить</a></h2>
+  </div>
 
 
-
-    
 
     {% block content %}
     <ul class="sidebar-nav">
@@ -25,6 +29,7 @@
        {% endif %} 
       </ul>
     {% endblock %}
+  </div>
 
 </body>
 </html>
