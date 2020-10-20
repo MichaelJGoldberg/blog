@@ -9,7 +9,6 @@ class SearchForm(forms.Form):
 class AddForm(forms.Form): 
     title = forms.CharField(max_length = 100)
     text = forms.CharField(max_length = 1000)
-    author = forms.CharField(max_length = 1000)
 
 class LoginForm(forms.Form): 
     name = forms.CharField(max_length=100)

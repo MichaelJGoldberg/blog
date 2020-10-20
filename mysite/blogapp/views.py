@@ -54,7 +54,7 @@ def commenting(request, question_id):
         if request.method == "POST":
             _text = request.POST.get("text")
             value = Question.objects.get(id = question_id)
-            comment = Comment(texts= _text,post = value)
+            comment = Comment(texts= _text,post = value, user = request.user)
             comment.save()
             link = '//127.0.0.1:8000/' + str(question_id)
             return redirect(link)
@@ -94,10 +94,8 @@ def adding(request):
     if request.method == "POST":
         _title = request.POST.get("title")
         _text = request.POST.get("text")
-        _author = request.POST.get("author")
-        _user = User.objects.get(username=_author)
-        obj = Question.objects.create(title = _title, text = _text, user = _user )
-        context  = {"object":obj,"user":_user}
+        obj = Question.objects.create(title = _title, text = _text, user = request.user )
+        context  = {"object":obj}
         return render(request, 'add_results.html', context)
 
 
